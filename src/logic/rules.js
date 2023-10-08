@@ -7,7 +7,7 @@ export const rules = {
     1: {
       pattern: "1.*",
       description: "Starts with 1",
-      minNumberMatches: 100,
+      minNumberMatches: 10,
       maxNumberMatches: 10000,
       maxLength: 5,
     },
@@ -40,7 +40,7 @@ export const rules = {
     1: {
       pattern: ".*1",
       description: "Ends with 1",
-      minNumberMatches: 100,
+      minNumberMatches: 10,
       maxNumberMatches: 10000,
       maxLength: 5,
     },
@@ -73,7 +73,7 @@ export const rules = {
     1: {
       pattern: ".1.*",
       description: "1 is the second letter",
-      minNumberMatches: 100,
+      minNumberMatches: 10,
       maxNumberMatches: 10000,
       maxLength: 5,
     },
@@ -106,15 +106,16 @@ export const rules = {
     1: {
       pattern: "12.*",
       description: "1 is first and 2 is second",
-      minNumberMatches: 100,
+      minNumberMatches: 10,
       maxNumberMatches: 10000,
       maxLength: 5,
     },
     2: {
       pattern: "1.*2",
       description: "1 is first and 2 is last",
-      minNumberMatches: 100,
+      minNumberMatches: 20,
       maxNumberMatches: 10000,
+      maxLength: 6,
     },
     3: {
       pattern: "1.*2",
@@ -125,7 +126,7 @@ export const rules = {
     4: {
       pattern: "1.*2.*3",
       description: "1 is first and 3 is last",
-      minNumberMatches: 100,
+      minNumberMatches: 50,
       maxNumberMatches: 10000,
     },
     5: {
@@ -139,7 +140,7 @@ export const rules = {
     1: {
       pattern: ".*12",
       description: "Ends with 12",
-      minNumberMatches: 100,
+      minNumberMatches: 10,
       maxNumberMatches: 10000,
       maxLength: 5,
     },
@@ -191,7 +192,7 @@ export const rules = {
     4: {
       pattern: "1.+2.+3.*",
       description: "Starts with 1 and no letters touch",
-      minNumberMatches: 100,
+      minNumberMatches: 50,
       maxNumberMatches: 10000,
     },
     5: {
@@ -224,7 +225,7 @@ export const rules = {
     4: {
       pattern: ".+123.+",
       description: "Contains 123 in the middle",
-      minNumberMatches: 100,
+      minNumberMatches: 50,
       maxNumberMatches: 10000,
     },
     5: {

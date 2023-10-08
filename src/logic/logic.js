@@ -99,6 +99,7 @@ function replaceWithLetters(combo, thingToReplace) {
 }
 
 export function getClue({color, level, test=false}) {
+  let numClues = 0;
   const rule = rules[color][level]["pattern"];
   const description = rules[color][level]["description"];
   const minNumberMatches = rules[color][level]["minNumberMatches"];
@@ -114,13 +115,20 @@ export function getClue({color, level, test=false}) {
       wordMatches.length >= minNumberMatches &&
       wordMatches.length <= maxNumberMatches
     ) {
-      const modifiedDescription = replaceWithLetters(combo, description)
-      return {
-        clue: combo,
-        solution: shuffleArray(wordMatches).slice(0,10),
-        description: modifiedDescription,
-      };
+      if (!test) {
+        const modifiedDescription = replaceWithLetters(combo, description)
+        return {
+          clue: combo,
+          solution: shuffleArray(wordMatches).slice(0,10),
+          description: modifiedDescription,
+        };
+      } else {
+        numClues ++
+      }
     }
   }
+
+  if (test) return numClues
 }
 
+// console.log(getClue({color: "gray", level: 1, test: true}))
