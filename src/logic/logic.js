@@ -1,3 +1,5 @@
+import { rules } from "./rules";
+
 const allWords = [
   "ABLE",
   "ABLY",
@@ -670,7 +672,6 @@ const allWords = [
   "HALT",
   "HAND",
   "HANG",
-  "level_5",
   "HARE",
   "HARK",
   "HARM",
@@ -29751,10 +29752,10 @@ const allWords = [
   "NONREPRESENTATIONAL",
   "INSTITUTIONALIZATION",
   "INTERNATIONALIZATION",
-  "UNCHARACTERISTICALLY"
+  "UNCHARACTERISTICALLY",
 ];
 
-function shuffleArray(array, pseudoRandomGenerator) {
+function shuffleArray(array) {
   let shuffledArray = array.slice();
 
   // Swap each value in an array, starting at the end of the array, with a position equal or earlier in the array.
@@ -29762,12 +29763,8 @@ function shuffleArray(array, pseudoRandomGenerator) {
     // Get a "random" index from 0 to the current index of the array
     // So for an array of length 3, the first round will be 0, 1, or 2, second round 0 or 1, and last round 0
     // The values at this index and the current index will be swapped
-    let swapIndex
-    if (pseudoRandomGenerator) {
-      swapIndex = Math.floor(pseudoRandomGenerator() * (index + 1));
-    } else {
-      swapIndex = Math.floor(Math.random() * (index + 1));
-    }
+    let swapIndex;
+    swapIndex = Math.floor(Math.random() * (index + 1));
 
     // If the current index and index to swap are the same, move on to the next loop iteration
     if (index === swapIndex) {
@@ -29783,244 +29780,6 @@ function shuffleArray(array, pseudoRandomGenerator) {
   }
 
   return shuffledArray;
-}
-
-// .* zero or more
-// .+ one or more
-// . exactly one
-
-const rules = {
-  "gray": {
-    "level_1": {
-      "pattern": "1.*",
-      "description": "first is first",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-      maxLength: 5,
-    },
-    "level_2": {
-      "pattern": "1.*2.*",
-      "description": "first is first",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_3": {
-      "pattern": "1.*2.*",
-      "description": "first is first",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-    "level_4": {
-      "pattern": "1.*2.*3.*",
-      "description": "first is first",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_5": {
-      "pattern": "1.*2.*3.*",
-      "description": "first is first",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-  },
-  "yellow": {
-    "level_1": {
-      "pattern": ".*1",
-      "description": "last is last",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-      maxLength: 5,
-    },
-    "level_2": {
-      "pattern": ".*1.*2",
-      "description": "last is last",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_3": {
-      "pattern": ".*1.*2",
-      "description": "last is last",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-    "level_4": {
-      "pattern": ".*1.*2.*3",
-      "description": "last is last",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_5": {
-      "pattern": ".*1.*2.*3",
-      "description": "last is last",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-  },
-  "orange": {
-    "level_1": {
-      "pattern": ".1.*",
-      "description": "first is second",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-      maxLength: 5,
-    },
-    "level_2": {
-      "pattern": ".1.*2.*",
-      "description": "first is second",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_3": {
-      "pattern": ".1.*2.*",
-      "description": "first is second",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-    "level_4": {
-      "pattern": ".1.*2.*3.*",
-      "description": "first is second",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_5": {
-      "pattern": ".1.*2.*3.*",
-      "description": "first is second",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-  },
-  "pink": {
-    "level_1": {
-      "pattern": "12.*",
-      "description": "first is first and second is second",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-      maxLength: 5,
-    },
-    "level_2": {
-      "pattern": "1.*2",
-      "description": "first is first and last is last",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_3": {
-      "pattern": "1.*2",
-      "description": "first is first and last is last",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-    "level_4": {
-      "pattern": "1.*2.*3",
-      "description": "first is first and last is last",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_5": {
-      "pattern": "1.*2.*3",
-      "description": "first is first and last is last",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-  },
-  "green": {
-    "level_1": {
-      "pattern": ".*12",
-      "description": "first and second are last",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-      maxLength: 5,
-    },
-    "level_2": {
-      "pattern": ".*12.*",
-      "description": "first and second are adjacent",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_3": {
-      "pattern": ".*12.*",
-      "description": "first and second are adjacent",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-    "level_4": {
-      "pattern": ".*12.*3.*",
-      "description": "first and second are adjacent",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_5": {
-      "pattern": ".*12.*3.*",
-      "description": "first and second are adjacent",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-  },
-  "blue": {
-    "level_1": {
-      "pattern": "123.*",
-      "description": "first, second, and third are first",
-      minNumberMatches: 10,
-      maxNumberMatches: 10000,
-      maxLength: 5,
-    },
-    "level_2": {
-      "pattern": "1.+2.*",
-      "description": "first is first and nothing touches",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_3": {
-      "pattern": "1.+2.*",
-      "description": "first is first and nothing touches",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-    "level_4": {
-      "pattern": "1.+2.+3.*",
-      "description": "first is first and nothing touches",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_5": {
-      "pattern": "1.+2.+3.*",
-      "description": "first is first and nothing touches",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-  },
-  "purple": {
-    "level_1": {
-      "pattern": ".+123",
-      "description": "ends with all",
-      minNumberMatches: 10,
-      maxNumberMatches: 10000,
-      maxLength: 5,
-    },
-    "level_2": {
-      "pattern": ".+12.+",
-      "description": "first not first, last not last, all touches",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_3": {
-      "pattern": ".+12.+",
-      "description": "first not first, last not last, all touches",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-    "level_4": {
-      "pattern": ".+123.+",
-      "description": "first not first, last not last, all touches",
-      minNumberMatches: 100,
-      maxNumberMatches: 10000,
-    },
-    "level_5": {
-      "pattern": ".+123.+",
-      "description": "first not first, last not last, all touches",
-      minNumberMatches: 1,
-      maxNumberMatches: 100,
-    },
-  },
 }
 
 function getAllLetterCombos(numLetters) {
@@ -30050,32 +29809,40 @@ function getAllLetterCombos(numLetters) {
     "W",
     "X",
     "Y",
-    "Z"
+    "Z",
   ];
 
-  let combos = [...allLetters]
+  let combos = [...allLetters];
 
   for (let index = 1; index < numLetters; index++) {
-    let updatedCombos = []
+    let updatedCombos = [];
     for (const letter of allLetters) {
       for (const combo of combos) {
-        updatedCombos.push(combo + letter)
+        updatedCombos.push(combo + letter);
       }
     }
     combos = updatedCombos;
   }
-  return combos
+  return combos;
 }
 
 function getWordsThatMatch(pattern, maxLength) {
   const patternRegExp = new RegExp(`^${pattern}$`);
-  const matches = allWords.filter(word => word.length <= maxLength && patternRegExp.test(word));
+  const matches = allWords.filter(
+    (word) => word.length <= maxLength && patternRegExp.test(word),
+  );
 
-  return matches
+  return matches;
 }
 
-function getClue({color, level}) {
+function replaceWithLetters(combo, thingToReplace) {
+  const iterator = combo.split("")[Symbol.iterator]();
+  return thingToReplace.replace(/\d/g, () => iterator.next().value ?? "");
+}
+
+export function getClue({color, level}) {
   const rule = rules[color][level]["pattern"];
+  const description = rules[color][level]["description"];
   const minNumberMatches = rules[color][level]["minNumberMatches"];
   const maxNumberMatches = rules[color][level]["maxNumberMatches"];
   const maxLength = rules[color][level]["maxLength"] || 30;
@@ -30083,15 +29850,18 @@ function getClue({color, level}) {
   const possibleCombos = shuffleArray(getAllLetterCombos(numLetters));
 
   for (const combo of possibleCombos) {
-    const iterator = combo.split("")[Symbol.iterator]();
-    const pattern = rule.replace(/\d/g, () => iterator.next().value ?? "");
-    const wordMatches = getWordsThatMatch(pattern, maxLength)
-    if (wordMatches.length >= minNumberMatches && wordMatches.length <= maxNumberMatches) {
-      console.log(wordMatches)
-     console.log(pattern) 
-      break;
+    const pattern = replaceWithLetters(combo, rule)
+    const wordMatches = getWordsThatMatch(pattern, maxLength);
+    if (
+      wordMatches.length >= minNumberMatches &&
+      wordMatches.length <= maxNumberMatches
+    ) {
+      const modifiedDescription = replaceWithLetters(combo, description)
+      return {
+        clue: combo,
+        solution: shuffleArray(wordMatches).slice(0,10),
+        description: modifiedDescription,
+      };
     }
   }
 }
-
-getClue({color: "green",level: "level_1"})
