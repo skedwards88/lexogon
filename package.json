@@ -23,7 +23,8 @@
   "homepage": "https://github.com/skedwards88/lexpand#readme",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@skedwards88/word_lists": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.22.6",
