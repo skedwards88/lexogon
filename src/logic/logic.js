@@ -4,6 +4,7 @@ import {
   commonWordsLen5,
   commonWordsLen6,
   commonWordsLen7,
+  commonWordsLen8plus,
 } from "@skedwards88/word_lists";
 
 
@@ -84,6 +85,7 @@ function getWordsThatMatch(pattern, maxLength) {
     ...commonWordsLen5,
     ...commonWordsLen6,
     ...commonWordsLen7,
+    ...commonWordsLen8plus,
   ];
   const patternRegExp = new RegExp(`^${pattern}$`);
   const matches = allWords.filter(
