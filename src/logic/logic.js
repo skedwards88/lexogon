@@ -94,8 +94,10 @@ function getWordsThatMatch(pattern, maxLength) {
 }
 
 function replaceWithLetters(combo, thingToReplace) {
-  const iterator = combo.split("")[Symbol.iterator]();
-  return thingToReplace.replace(/\d/g, () => iterator.next().value ?? "");
+  for (let index = 1; index <= combo.length; index++) {
+    thingToReplace = thingToReplace.replace(`${index}`, combo[index - 1])
+  }
+  return thingToReplace
 }
 
 export function getClue({color, level, test=false}) {
