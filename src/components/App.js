@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./Home";
 import Clue from "./Clue";
 import Solution from "./Solution";
+import Info from "./Info";
 
 export default function App() {
   const [display, setDisplay] = React.useState("home");
@@ -22,11 +23,13 @@ export default function App() {
     case "solution":
       return (
         <Solution
-        currentSolution={currentSolution}
-        currentColor={currentColor}
-        setDisplay={setDisplay}>
-        </Solution>
-      )
+          currentSolution={currentSolution}
+          currentColor={currentColor}
+          setDisplay={setDisplay}
+        ></Solution>
+      );
+    case "info":
+      return <Info setDisplay={setDisplay}></Info>;
     default:
       return (
         <Home

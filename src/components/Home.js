@@ -10,12 +10,22 @@ function ColorButton({color, setColor, currentColor}) {
   );
 }
 
-function LevelButton({level, setLevel ,currentLevel}) {
+function LevelButton({level, setLevel, currentLevel}) {
   const selected = currentLevel === level;
   const className = `${selected ? "selected" : ""}`;
-  return <button className={className} onClick={() => setLevel(level)}>{level}</button>;
+  return (
+    <button className={className} onClick={() => setLevel(level)}>
+      {level}
+    </button>
+  );
 }
-export default function Home({setColor, setLevel, setDisplay, currentColor, currentLevel}) {
+export default function Home({
+  setColor,
+  setLevel,
+  setDisplay,
+  currentColor,
+  currentLevel,
+}) {
   const colors = [
     "gray",
     "orange",
@@ -35,7 +45,12 @@ export default function Home({setColor, setLevel, setDisplay, currentColor, curr
     ></ColorButton>
   ));
   const levelButtons = levels.map((level) => (
-    <LevelButton key={level} level={level} setLevel={setLevel} currentLevel={currentLevel}></LevelButton>
+    <LevelButton
+      key={level}
+      level={level}
+      setLevel={setLevel}
+      currentLevel={currentLevel}
+    ></LevelButton>
   ));
 
   return (
@@ -44,6 +59,9 @@ export default function Home({setColor, setLevel, setDisplay, currentColor, curr
       <div id="levels">{levelButtons}</div>
       <button className="command" onClick={() => setDisplay("clue")}>
         Go!
+      </button>
+      <button className="command" onClick={() => setDisplay("info")}>
+        info
       </button>
     </div>
   );

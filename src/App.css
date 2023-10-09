@@ -175,10 +175,18 @@ button:disabled {
 #clue {
   align-self: center;
   text-align: center;
-
 }
 #clueLetters {
   font-weight: bold;
   font-size: calc(var(--default-font-size) * 1.5);
   letter-spacing: 15px;
+}
+
+/* info */
+
+#info {
+  white-space: pre-wrap;
+  align-self: center;
+  text-align: center;
+  padding: 5vmin;
 }
