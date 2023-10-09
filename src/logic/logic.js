@@ -1,4 +1,4 @@
-import { rules } from "./rules";
+import {rules} from "./rules";
 import {
   commonWordsLen4,
   commonWordsLen5,
@@ -6,7 +6,6 @@ import {
   commonWordsLen7,
   commonWordsLen8plus,
 } from "@skedwards88/word_lists";
-
 
 function shuffleArray(array) {
   let shuffledArray = array.slice();
@@ -97,12 +96,12 @@ function getWordsThatMatch(pattern, maxLength) {
 
 function replaceWithLetters(combo, thingToReplace) {
   for (let index = 1; index <= combo.length; index++) {
-    thingToReplace = thingToReplace.replace(`${index}`, combo[index - 1])
+    thingToReplace = thingToReplace.replace(`${index}`, combo[index - 1]);
   }
-  return thingToReplace
+  return thingToReplace;
 }
 
-export function getClue({color, level, test=false}) {
+export function getClue({color, level, test = false}) {
   let numClues = 0;
   const rule = rules[color][level]["pattern"];
   const description = rules[color][level]["description"];
@@ -113,26 +112,26 @@ export function getClue({color, level, test=false}) {
   const possibleCombos = shuffleArray(getAllLetterCombos(numLetters));
 
   for (const combo of possibleCombos) {
-    const pattern = replaceWithLetters(combo, rule)
+    const pattern = replaceWithLetters(combo, rule);
     const wordMatches = getWordsThatMatch(pattern, maxLength);
     if (
       wordMatches.length >= minNumberMatches &&
       wordMatches.length <= maxNumberMatches
     ) {
       if (!test) {
-        const modifiedDescription = replaceWithLetters(combo, description)
+        const modifiedDescription = replaceWithLetters(combo, description);
         return {
           clue: combo,
-          solution: shuffleArray(wordMatches).slice(0,10),
+          solution: shuffleArray(wordMatches).slice(0, 10),
           description: modifiedDescription,
         };
       } else {
-        numClues ++
+        numClues++;
       }
     }
   }
 
-  if (test) return numClues
+  if (test) return numClues;
 }
 
 // console.log(getClue({color: "gray", level: 1, test: true}))
