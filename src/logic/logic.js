@@ -113,16 +113,22 @@ export function getClue({color, level, test = false}) {
 
   for (const combo of possibleCombos) {
     const pattern = replaceWithLetters(combo, rule);
-    const wordMatches = getWordsThatMatch(pattern, maxLength);
+    let wordMatches = getWordsThatMatch(pattern, maxLength);
     if (
       wordMatches.length >= minNumberMatches &&
       wordMatches.length <= maxNumberMatches
     ) {
       if (!test) {
         const modifiedDescription = replaceWithLetters(combo, description);
+        wordMatches = shuffleArray(wordMatches);
+        wordMatches.sort((a,b) => a.length - b.length);
+        let selectedSolutions = wordMatches.slice(0, 10);
+        if (wordMatches.length > 10) {
+          selectedSolutions.push(`...at least ${wordMatches.length - 1} more`)
+        }
         return {
           clue: combo,
-          solution: shuffleArray(wordMatches).slice(0, 10),
+          solution: selectedSolutions,
           description: modifiedDescription,
         };
       } else {
@@ -134,4 +140,4 @@ export function getClue({color, level, test = false}) {
   if (test) return numClues;
 }
 
-// console.log(getClue({color: "gray", level: 1, test: true}))
+// console.log(getClue({color: "purple", level: 5, test: true}))
