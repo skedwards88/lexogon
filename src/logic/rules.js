@@ -32,7 +32,7 @@ export const rules = {
     5: {
       pattern: "1.*2.*3.*",
       description: "Starts with 1",
-      minNumberMatches: 1,
+      minNumberMatches: 5,
       maxNumberMatches: 100,
     },
   },
@@ -65,7 +65,7 @@ export const rules = {
     5: {
       pattern: ".*1.*2.*3",
       description: "Ends with 3",
-      minNumberMatches: 1,
+      minNumberMatches: 5,
       maxNumberMatches: 100,
     },
   },
@@ -98,7 +98,7 @@ export const rules = {
     5: {
       pattern: ".1.*2.*3.*",
       description: "1 is the second letter",
-      minNumberMatches: 1,
+      minNumberMatches: 5,
       maxNumberMatches: 100,
     },
   },
@@ -132,7 +132,7 @@ export const rules = {
     5: {
       pattern: "1.*2.*3",
       description: "1 is first and 3 is last",
-      minNumberMatches: 1,
+      minNumberMatches: 5,
       maxNumberMatches: 100,
     },
   },
@@ -165,7 +165,7 @@ export const rules = {
     5: {
       pattern: ".*12.*3.*",
       description: "1 and 2 are adjacent",
-      minNumberMatches: 1,
+      minNumberMatches: 5,
       maxNumberMatches: 100,
     },
   },
@@ -198,7 +198,7 @@ export const rules = {
     5: {
       pattern: "1.+2.+3.*",
       description: "Starts with 1 and no letters touch",
-      minNumberMatches: 1,
+      minNumberMatches: 5,
       maxNumberMatches: 100,
     },
   },
@@ -231,7 +231,7 @@ export const rules = {
     5: {
       pattern: ".+123.+",
       description: "Contains 123 in the middle",
-      minNumberMatches: 1,
+      minNumberMatches: 5,
       maxNumberMatches: 100,
     },
   },
