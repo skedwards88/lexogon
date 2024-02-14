@@ -24,6 +24,7 @@ function Timer({initialSeconds}) {
     return () => {
       clearInterval(timerID);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
