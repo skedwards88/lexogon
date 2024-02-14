@@ -43,7 +43,7 @@ button {
 }
 
 button:disabled {
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 /* color buttons */
@@ -52,16 +52,19 @@ button:disabled {
   display: flex;
   flex-direction: column;
 }
+
 #colors > button {
   text-align: center;
   text-transform: uppercase;
   color: white;
 }
+
 .selected {
   border: 3px solid white;
   color: black;
   font-weight: bold;
 }
+
 .gray {
   background-image: linear-gradient(
     to right,
@@ -70,6 +73,7 @@ button:disabled {
     #bfb6c1 100%
   );
 }
+
 .yellow {
   background-image: linear-gradient(
     to right,
@@ -78,6 +82,7 @@ button:disabled {
     #f3eb06 100%
   );
 }
+
 .orange {
   background-image: linear-gradient(
     to right,
@@ -86,6 +91,7 @@ button:disabled {
     #f96407 100%
   );
 }
+
 .green {
   background-image: linear-gradient(
     to right,
@@ -94,6 +100,7 @@ button:disabled {
     #0bf713 100%
   );
 }
+
 .blue {
   background-image: linear-gradient(
     to right,
@@ -102,6 +109,7 @@ button:disabled {
     #2706fb 100%
   );
 }
+
 .pink {
   background-image: linear-gradient(
     to right,
@@ -110,6 +118,7 @@ button:disabled {
     #fa05b1 100%
   );
 }
+
 .purple {
   background-image: linear-gradient(
     to right,
@@ -118,8 +127,6 @@ button:disabled {
     #da22ff 100%
   );
 }
-
-/*  */
 
 /* level buttons */
 
@@ -139,8 +146,6 @@ button:disabled {
   color: white;
   flex: 1;
 }
-
-/*  */
 
 /* command button */
 
@@ -176,6 +181,7 @@ button:disabled {
   align-self: center;
   text-align: center;
 }
+
 #clueLetters {
   font-weight: bold;
   font-size: calc(var(--default-font-size) * 1.5);

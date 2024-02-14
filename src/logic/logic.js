@@ -121,10 +121,10 @@ export function getClue({color, level, test = false}) {
       if (!test) {
         const modifiedDescription = replaceWithLetters(combo, description);
         wordMatches = shuffleArray(wordMatches);
-        wordMatches.sort((a,b) => a.length - b.length);
+        wordMatches.sort((a, b) => a.length - b.length);
         let selectedSolutions = wordMatches.slice(0, 10);
         if (wordMatches.length > 10) {
-          selectedSolutions.push(`...at least ${wordMatches.length - 1} more`)
+          selectedSolutions.push(`...at least ${wordMatches.length - 1} more`);
         }
         return {
           clue: combo,
