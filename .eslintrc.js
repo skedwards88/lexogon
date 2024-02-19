@@ -1,10 +1,10 @@
 module.exports = {
   env: {
-    jest: true,
     node: true,
     browser: true,
-    es2021: true,
     "shared-node-browser": true,
+    es2021: true,
+    jest: true,
   },
   extends: [
     "eslint:recommended",
