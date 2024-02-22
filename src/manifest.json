@@ -2,6 +2,7 @@
   "name": "Lexpand: Lexogon expanded",
   "short_name": "Lexpand",
   "description": "Expanded clues to accommodate a range of Lexogon players.",
+  "id": "?lexpand=202402221",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
